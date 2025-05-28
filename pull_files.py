@@ -160,6 +160,11 @@ if __name__ == "__main__":
     for _ in range(1):
         spk = random.choice(list_of_spks)
         html_head = f"""
+        <section id="com" class="hero ">
+  <div class="hero-body">
+    <div class="container is-fluid">
+      <div class="columns is-centered has-text-centered">
+      </div>
         <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
           <h3 class="title is-4"><i class="fas fa-headphones"></i> {spk}</a>
@@ -181,12 +186,13 @@ if __name__ == "__main__":
           """
         with open("sampled_data.html", "a") as f:
             f.write(html_head)
-        for _ in range(5):
+        for _ in range(8):
             sample_spk_utt(spk, utt_ids)
         html_tail = """
         </tbody>
         </table>
         </div>
+        </section>
         """
         with open("sampled_data.html", "a") as f:
             f.write(html_tail)
