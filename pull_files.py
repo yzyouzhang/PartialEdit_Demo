@@ -157,7 +157,7 @@ def sample_spk_utt(spk, utt_ids):
         pass
 
 if __name__ == "__main__":
-    for _ in range(1):
+    for _ in range(4):
         spk = random.choice(list_of_spks)
         html_head = f"""
         <section id="com" class="hero ">
@@ -186,7 +186,7 @@ if __name__ == "__main__":
           """
         with open("sampled_data.html", "a") as f:
             f.write(html_head)
-        for _ in range(8):
+        for _ in range(12):
             sample_spk_utt(spk, utt_ids)
         html_tail = """
         </tbody>
