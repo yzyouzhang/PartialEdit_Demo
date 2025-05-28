@@ -157,10 +157,38 @@ def sample_spk_utt(spk, utt_ids):
         pass
 
 if __name__ == "__main__":
-    # for _ in range(5):
-    spk = 'p232' #random.choice(list_of_spks)
-    for _ in range(4):
-        sample_spk_utt(spk, utt_ids)
-    
-    print("Sampled 100 speaker-utterance pairs.")
+    for _ in range(1):
+        spk = random.choice(list_of_spks)
+        html_head = f"""
+        <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h3 class="title is-4"><i class="fas fa-headphones"></i> {spk}</a>
+          </h3>
+        </div>
+      </div>
+      <div class="columns is-centered has-text-centered">
+        <table class="table" style="background-color: transparent;">
+          <thead>
+            <tr>
+              <th align="center"><strong>VCTK</strong></th>
+              <th align="center"><strong>E1</strong></th>
+              <th align="center"><strong>E1-Codec</strong></th>
+              <th align="center"><strong>E2</strong></th>
+              <th align="center"><strong>E2-Codec</strong></th>
+            </tr>
+          </thead>
+          <tbody>
+          """
+        with open("sampled_data.html", "a") as f:
+            f.write(html_head)
+        for _ in range(5):
+            sample_spk_utt(spk, utt_ids)
+        html_tail = """
+        </tbody>
+        </table>
+        </div>
+        """
+        with open("sampled_data.html", "a") as f:
+            f.write(html_tail)
+    print("Sampled data saved to sampled_data.html")
 
