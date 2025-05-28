@@ -186,7 +186,7 @@ if __name__ == "__main__":
         """
     with open("sampled_data.html", "a") as f:
         f.write(html_head)
-    for _ in range(12):
+    for _ in range(15):
         sample_spk_utt(spk, utt_ids)
     html_tail = """
     </tbody>
